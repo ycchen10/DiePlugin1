@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiePlugin", "DiePlugin\DiePlugin.csproj", "{55A1E985-2B47-4DE2-8136-03A81C35A6D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Basic", "Basic\Basic.csproj", "{B417FBC5-A8EC-41DC-9CCA-485F3B9F069F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiePlugin.DAL", "DiePlugin.DAL\DiePlugin.DAL.csproj", "{E70CF07F-7D5A-4463-BB86-BDDCDC408364}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiePlugin.Model", "DiePlugin.Model\DiePlugin.Model.csproj", "{2CA0E164-5871-4132-9679-E91E7615A9A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiePlugin.UI", "DiePlugin.UI\DiePlugin.UI.csproj", "{73B64895-B9AA-4654-BDE7-10E3565F525A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExportDwgForWEDM", "ExportDwgForWEDM\ExportDwgForWEDM.csproj", "{4499E20C-468B-423A-97EA-EBA9B73BC743}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{55A1E985-2B47-4DE2-8136-03A81C35A6D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55A1E985-2B47-4DE2-8136-03A81C35A6D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55A1E985-2B47-4DE2-8136-03A81C35A6D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55A1E985-2B47-4DE2-8136-03A81C35A6D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B417FBC5-A8EC-41DC-9CCA-485F3B9F069F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B417FBC5-A8EC-41DC-9CCA-485F3B9F069F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B417FBC5-A8EC-41DC-9CCA-485F3B9F069F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B417FBC5-A8EC-41DC-9CCA-485F3B9F069F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E70CF07F-7D5A-4463-BB86-BDDCDC408364}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E70CF07F-7D5A-4463-BB86-BDDCDC408364}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E70CF07F-7D5A-4463-BB86-BDDCDC408364}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E70CF07F-7D5A-4463-BB86-BDDCDC408364}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CA0E164-5871-4132-9679-E91E7615A9A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CA0E164-5871-4132-9679-E91E7615A9A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CA0E164-5871-4132-9679-E91E7615A9A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CA0E164-5871-4132-9679-E91E7615A9A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73B64895-B9AA-4654-BDE7-10E3565F525A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73B64895-B9AA-4654-BDE7-10E3565F525A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73B64895-B9AA-4654-BDE7-10E3565F525A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73B64895-B9AA-4654-BDE7-10E3565F525A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4499E20C-468B-423A-97EA-EBA9B73BC743}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4499E20C-468B-423A-97EA-EBA9B73BC743}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4499E20C-468B-423A-97EA-EBA9B73BC743}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4499E20C-468B-423A-97EA-EBA9B73BC743}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
