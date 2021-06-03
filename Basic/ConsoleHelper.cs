@@ -47,6 +47,24 @@ namespace Basic
         }
 
         /// <summary>
+        /// 隐藏控制台
+        /// </summary>
+        /// <param name="ConsoleTitle">控制台标题(可为空,为空则取默认值)</param>
+        public static bool HideConsoleForBool(string ConsoleTitle = "")
+        {
+            ConsoleTitle = String.IsNullOrEmpty(ConsoleTitle) ? Console.Title : ConsoleTitle;
+            IntPtr hWnd = FindWindow(null, ConsoleTitle);
+            if (hWnd != IntPtr.Zero)
+            {
+                ShowWindow(hWnd, 0);
+                return true;
+
+            }
+            else
+                return false;
+        }
+
+        /// <summary>
         /// 显示控制台
         /// </summary>
         /// <param name="ConsoleTitle">控制台标题(可为空,为空则去默认值)</param>

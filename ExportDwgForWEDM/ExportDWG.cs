@@ -21,7 +21,7 @@ namespace ExportDwgForWEDM
         private string _partPath = null;
         public ExportDWG(string saveAsFile, string partPath)
         {
-          //  theUFSession.UF.SetVariable(" UGII_LOAD_OPTIONS", @"C:\Users\ycchen10\OneDrive - kochind.com\Desktop\MolexPlugIn-1899\Part\load_options.def");
+            //  theUFSession.UF.SetVariable(" UGII_LOAD_OPTIONS", @"C:\Users\ycchen10\OneDrive - kochind.com\Desktop\MolexPlugIn-1899\Part\load_options.def");
             this._saveAsFile = saveAsFile;
             _partPath = partPath;
         }
@@ -163,9 +163,15 @@ namespace ExportDwgForWEDM
                     foreach (Body by in cpPart.Bodies)
                     {
                         by.Color = 1;
+                        Body occBody = AssmbliesUtils.GetNXObjectOfOcc(ct.Tag, by.Tag) as Body;
+                        if (occBody != null)
+                            occBody.Color = 1;
                         foreach (Face fe in by.GetFaces())
                         {
                             this.SetFaceColour(fe);
+                            Face occFace = AssmbliesUtils.GetNXObjectOfOcc(ct.Tag, fe.Tag) as Face;
+                            if (occFace != null)
+                                this.SetFaceColour(occFace);
                         }
                     }
 
@@ -179,12 +185,17 @@ namespace ExportDwgForWEDM
                     if (cpPart != null)
                     {
                         PartUtils.SetPartDisplay(cpPart);
+
                         foreach (Body by in cpPart.Bodies)
                         {
                             by.Color = 1;
+                            Body occBody = AssmbliesUtils.GetNXObjectOfOcc(ct.Tag, by.Tag) as Body;
                             foreach (Face fe in by.GetFaces())
                             {
                                 this.SetFaceColour(fe);
+                                Face occFace = AssmbliesUtils.GetNXObjectOfOcc(ct.Tag, fe.Tag) as Face;
+                                if (occFace != null)
+                                    this.SetFaceColour(occFace);
                             }
                         }
                     }
@@ -207,11 +218,12 @@ namespace ExportDwgForWEDM
                 return false;
             else
             {
+                List<DisplayableObject> objs = new List<DisplayableObject>();
                 foreach (NXOpen.Annotations.Dimension dim in part.Dimensions) //删除尺寸
                 {
                     if (Math.Round(dim.ComputedSize, 4) == 0)
                     {
-                        dim.Color = 186;
+                        objs.Add(dim);
                     }
                     else
                     {
@@ -220,8 +232,22 @@ namespace ExportDwgForWEDM
                 }
                 foreach (NXOpen.Annotations.Note ne in part.Notes) //删除注释
                 {
+
                     theUFSession.Obj.DeleteObject(ne.Tag);
+
                 }
+                objs.AddRange(part.Notes.ToArray());
+                NXOpen.DisplayModification displayModification1;
+                displayModification1 = theSession.DisplayManager.NewDisplayModification();
+
+                displayModification1.ApplyToAllFaces = true;
+
+                displayModification1.ApplyToOwningParts = false;
+
+                displayModification1.NewColor = 186;
+                displayModification1.NewWidth = NXOpen.DisplayableObject.ObjectWidth.One;
+                displayModification1.Apply(objs.ToArray());
+                displayModification1.Dispose();
                 foreach (NXOpen.Annotations.Hatch hc in part.Annotations.Hatches) //删除剖面线
                 {
                     try
@@ -271,14 +297,17 @@ namespace ExportDwgForWEDM
             if (Open(out partTag))
             {
                 Part part = NXObjectManager.Get(partTag) as Part;
-                //  SetBodyColor(partTag);
                 SetColour(part);
                 UpdateDraw(part);
-                //bool anyPartsModified1;
-                //NXOpen.PartSaveStatus partSaveStatus1;
-                //theSession.Parts.SaveAll(out anyPartsModified1, out partSaveStatus1);
-                ExportDwg(part);
+                bool exp = ExportDwg(part);
+                //bool hide = true;
+                //while (hide && exp)
+                //{
+                //    if (ConsoleHelper.HideConsoleForBool("Exporting to DXFDWG File"))
+                //        hide = false;
+                //}             
                 this.Close(partTag);
+                ConsoleHelper.HideConsoleForBool("Exporting to DXFDWG File");
             }
         }
 

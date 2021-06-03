@@ -59,7 +59,7 @@ namespace Basic
         /// <returns></returns>
         public static bool PrintDWG(Part part, string fileName)
         {
-            ConsoleHelper.HideConsole("Exporting to DXFDWG File");
+            // ConsoleHelper.HideConsole("Exporting to DXFDWG File");
             NXOpen.DxfdwgCreator dxfdwgCreator1;
             dxfdwgCreator1 = Session.GetSession().DexManager.CreateDxfdwgCreator();
 
@@ -83,7 +83,7 @@ namespace Basic
 
 
             dxfdwgCreator1.LayerMask = "1-256";
-            dxfdwgCreator1.ProcessHoldFlag = true;
+            dxfdwgCreator1.ProcessHoldFlag = false;
 
             try
             {
@@ -92,8 +92,13 @@ namespace Basic
                     dxfdwgCreator1.DrawingList = sheet.Name;
                     NXOpen.NXObject nXObject1;
                     nXObject1 = dxfdwgCreator1.Commit();
-                    Thread.Sleep(5);
-                    ConsoleHelper.HideConsole("Exporting to DXFDWG File");
+                    Thread.Sleep(50);
+                    bool hide = true;
+                    while (hide)
+                    {
+                        if (ConsoleHelper.HideConsoleForBool("Exporting to DXFDWG File"))
+                            hide = false;
+                    }
                 }
 
                 return true;

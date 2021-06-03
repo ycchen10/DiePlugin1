@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.ColumnHeader path;
             this.listView = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.number = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.file = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.buttAllSelet = new System.Windows.Forms.Button();
@@ -39,7 +40,6 @@
             this.but_Cancel = new System.Windows.Forms.Button();
             this.butt_SaveAS = new System.Windows.Forms.Button();
             this.butt_Clear = new System.Windows.Forms.Button();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             path = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
@@ -60,11 +60,15 @@
             this.listView.FullRowSelect = true;
             this.listView.Location = new System.Drawing.Point(12, 12);
             this.listView.Name = "listView";
-            this.listView.Scrollable = false;
             this.listView.Size = new System.Drawing.Size(474, 569);
             this.listView.TabIndex = 0;
             this.listView.UseCompatibleStateImageBehavior = false;
             this.listView.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "选择";
+            this.columnHeader1.Width = 50;
             // 
             // number
             // 
@@ -187,11 +191,6 @@
             this.butt_Clear.Text = "清空";
             this.butt_Clear.UseVisualStyleBackColor = false;
             this.butt_Clear.Click += new System.EventHandler(this.butt_Clear_Click);
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "选择";
-            this.columnHeader1.Width = 50;
             // 
             // ExportDwgForWEDMForm
             // 

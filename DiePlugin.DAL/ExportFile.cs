@@ -25,7 +25,7 @@ namespace DiePlugin.DAL
             foreach (FileInfo fi in info.GetFiles())
             {
                 string name = fi.Name;
-                if (name.LastIndexOf("_dwg") != -1)
+                if (name.LastIndexOf("_dwg") != -1 && fi.Extension.Equals(".prt", StringComparison.CurrentCultureIgnoreCase))
                     path.Add(filePath + "\\" + fi.Name);
             }
             return path;
@@ -60,11 +60,11 @@ namespace DiePlugin.DAL
                     model.ExportDWG(part, outPath);
 
                 }
-                Thread.Sleep(50);
+            //    Thread.Sleep(50);
 
             }
 
         }
-      
+
     }
 }

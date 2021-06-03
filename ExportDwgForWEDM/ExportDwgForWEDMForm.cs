@@ -13,6 +13,7 @@ using NXOpen.UF;
 using DiePlugin.DAL;
 using System.IO;
 using System.Security.AccessControl;
+using System.Threading;
 
 namespace ExportDwgForWEDM
 {
@@ -128,8 +129,11 @@ namespace ExportDwgForWEDM
             for (int i = 0; i < listView.Items.Count; i++)
             {
                 ExportDWG ed = new ExportDWG(saveFile, listView.Items[i].SubItems[3].Text.ToString());
+                ConsoleHelper.HideConsoleForBool("Exporting to DXFDWG File");
                 ed.Export();
+                ConsoleHelper.HideConsoleForBool("Exporting to DXFDWG File");
             }
+            Thread.Sleep(5000);
             string dwgFile = saveFile + "\\" ;
             DirectoryInfo info = new DirectoryInfo(dwgFile);
             foreach (FileInfo fi in info.GetFiles())
