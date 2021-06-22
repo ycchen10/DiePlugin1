@@ -230,13 +230,15 @@ namespace ExportDwgForWEDM
                         theUFSession.Obj.DeleteObject(dim.Tag);
                     }
                 }
-                foreach (NXOpen.Annotations.Note ne in part.Notes) //删除注释
-                {
+                //foreach (NXOpen.Annotations.Note ne in part.Notes) //删除注释
+                //{
 
-                    theUFSession.Obj.DeleteObject(ne.Tag);
+                //    theUFSession.Obj.DeleteObject(ne.Tag);
 
-                }
+                //}
                 objs.AddRange(part.Notes.ToArray());
+                objs.AddRange(part.Annotations.IdSymbols.ToArray());
+                objs.AddRange(part.Annotations.Centerlines.ToArray());
                 NXOpen.DisplayModification displayModification1;
                 displayModification1 = theSession.DisplayManager.NewDisplayModification();
 
@@ -259,10 +261,10 @@ namespace ExportDwgForWEDM
 
                     }
                 }
-                foreach (NXOpen.Annotations.IdSymbol id in part.Annotations.IdSymbols) //删除符号标注
-                {
-                    theUFSession.Obj.DeleteObject(id.Tag);
-                }
+                //foreach (NXOpen.Annotations.IdSymbol id in part.Annotations.IdSymbols) //删除符号标注
+                //{
+                //    theUFSession.Obj.DeleteObject(id.Tag);
+                //}
                 try
                 {
                     foreach (NXOpen.Drawings.DrawingSheet st in sheets)

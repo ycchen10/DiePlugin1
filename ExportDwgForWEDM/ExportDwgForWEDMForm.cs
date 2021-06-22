@@ -106,6 +106,9 @@ namespace ExportDwgForWEDM
 
         private void butt_Export_Click(object sender, EventArgs e)
         {
+          //  UFSession theUfSession = UFSession.GetUFSession();
+            // theUfSession.UF.SetVariable("UGS_LICENSE_BUNDLE", "MILLFOUND");
+          //  theUfSession.UF.SetVariable("PATH", @"C:\Program Files\Siemens\NX1899\NXBIN\");
             bool isFile = true;
             string saveFile = null;
             if (_filePath != null && _saveFilePath == null)

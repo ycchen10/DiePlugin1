@@ -58,7 +58,7 @@ namespace Basic
             FolderBrowserDialog folder = new FolderBrowserDialog();
             folder.Description = "选择目录";
           //  folder.RootFolder = Environment.SpecialFolder.Desktop;
-            folder.SelectedPath = @"H:\GlobalToolingCenter\TS\PCAM\CAM\dxf";
+            folder.SelectedPath = "H:\\GlobalToolingCenter\\TS\\PCAM\\CAM\\dxf";
             if (folder.ShowDialog() == DialogResult.OK)
             {
                 //文件夹路径
