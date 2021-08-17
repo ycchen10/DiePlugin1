@@ -84,7 +84,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExportDWG.cs" />
     <Compile Include="ExportDwgForWEDMForm.cs">
       <SubType>Form</SubType>
     </Compile>

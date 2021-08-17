@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExportDWG.cs" />
     <Compile Include="ExportFile.cs" />
     <Compile Include="FaceColourForDia.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

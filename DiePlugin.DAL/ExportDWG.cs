@@ -248,8 +248,19 @@ namespace ExportDwgForWEDM
 
                 displayModification1.NewColor = 186;
                 displayModification1.NewWidth = NXOpen.DisplayableObject.ObjectWidth.One;
-                displayModification1.Apply(objs.ToArray());
-                displayModification1.Dispose();
+                try
+                {
+                    displayModification1.Apply(objs.ToArray());
+                }
+               catch
+                {
+
+                }
+                finally
+                {
+                    displayModification1.Dispose();
+                }
+               
                 foreach (NXOpen.Annotations.Hatch hc in part.Annotations.Hatches) //删除剖面线
                 {
                     try
